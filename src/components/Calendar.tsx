@@ -66,10 +66,11 @@ const Calendar: React.FC = () => {
     };
 
     const renderHeader = () => (
-        <div className="flex items-center p-4  text-white rounded-md mb-4">
-              <h2 className="text-lg text-black font-semibold mr-[450px]">
+        <div className="justify-between flex items-center p-4  text-white rounded-md mb-4">
+              <h2 className="text-lg text-black font-semibold">
                 {currentMonth.toLocaleString("default", { month: "long", year: "numeric" })}
             </h2>
+            <div>
             <button onClick={() => handleMonthChange(-1)}  className="text-xl font-bold text-black hover:text-blue-300 mr-6">
                 &lt;
             </button>
@@ -77,6 +78,7 @@ const Calendar: React.FC = () => {
             <button onClick={() => handleMonthChange(1)} className="text-xl font-bold text-black hover:text-blue-300"  >
                 &gt;
             </button>
+            </div>
         </div>
     );
 
@@ -139,12 +141,7 @@ const Calendar: React.FC = () => {
             {renderHeader()}
             {renderDays()}
             {renderCells()}
-            <button
-                className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500"
-                onClick={() => openModal()}
-            >
-                Add Event
-            </button>
+            <button className="mt-4 px-6 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-500" onClick={() => openModal()}>Add Event</button>
 
             {showModal && (
                 <div className="fixed inset-0 bg-gray-800 bg-opacity-50 flex items-center justify-center">
